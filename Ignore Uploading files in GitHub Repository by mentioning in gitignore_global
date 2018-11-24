@@ -1,0 +1,27 @@
+Steps :
+1. Create a .gitignore_global file in root directory in Mac terminal.
+    touch ~/.gitignore_global
+    
+2. Open file in terminal
+    open ~/.gitignore_global
+    
+3. Keep files name in following manner which you want to ignore 
+    # Ignorable files
+    .classpath
+    .project
+    .settings
+    suite.xml
+    
+4. Keep directories name in following manner which you want to ignore 
+    #directories
+    selionFiles
+    bin
+    test-output
+    
+5. save.
+
+6. git config --global core.excludesfile ~/.gitignore_global
+
+7. You are done, check by
+    git status 
+    Note: you won't find files mentioned in .gitignore_global either tracked or untracked.
