@@ -1,0 +1,35 @@
+My first Jenkins Job:
+Aim : To create a Jenkins job which can hit a API call via command line at 12.00 AM UTC(5.30 AM IST) daily.
+Solution : Create shell script
+
+Steps : 
+1. New item => Enter Project name(“Email_count”) => Free Style Project.
+2. General =>Check Restrict where this project can be run = LINUXCO7
+3. Source Code Management => select None
+4. Build Triggers =>check Build periodically =>Schedule => 30 23 * * *
+5. Build =>Add Build step =>Execute shell => Add any shell script.
+6. Post-build Actions =>Add post-build-Action =>Email-Notification => recipient
+
+
+--------------------------------------------------------------------------------------------------------------------------------
+Example shell script in 5th step(Execute Shell)
+
+export mail_details=$(curl "http://rdcemailer.rdc.moveaws.com/app_status?daily_mail_count=1&daily_mail_to_send_count=1&daily_mail_sent_count=1")
+
+export daily_mail_count=$(echo "$mail_details" | jq ".daily_mail_count")
+export daily_mail_to_send_count=$(echo "$mail_details" | jq ".daily_mail_to_send_count")
+export daily_mail_sent_count=$(echo "$mail_details" | jq ".daily_mail_sent_count")
+
+echo "daily_mail_count = " $daily_mail_count
+echo "daily_mail_to_send_count= " $daily_mail_to_send_count
+echo "daily_mail_sent_count= " $daily_mail_sent_count
+
+if [ "${daily_mail_count}" -eq "${daily_mail_sent_count}" ]
+then
+    echo "Great ! All emails are out"
+else
+    echo "Error!!emails are still processing"
+    exit 125
+fi
+
+
