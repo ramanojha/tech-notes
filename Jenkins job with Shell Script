@@ -6,9 +6,12 @@ Steps :
 1. New item => Enter Project name(“Email_count”) => Free Style Project.
 2. General =>Check Restrict where this project can be run = LINUXCO7
 3. Source Code Management => select None
-4. Build Triggers =>check Build periodically =>Schedule => 30 23 * * *
+4. Build Triggers =>check Build periodically =>Schedule => 00 00 * * *
 5. Build =>Add Build step =>Execute shell => Add any shell script.
 6. Post-build Actions =>Add post-build-Action =>Email-Notification => recipient
+
+#Configure Slack notification
+6. Post-build Actions =>Add post-build-Action =>Slack-Notification => Project Channel =>#xyz-alerts => test connection(should be paased)
 
 
 --------------------------------------------------------------------------------------------------------------------------------
