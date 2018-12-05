@@ -1,0 +1,35 @@
+1. Install Charles in system from https://www.charlesproxy.com/
+
+2. Launch Charles > Automatic macOS/Windows proxy configuration > grant privileges
+
+3. Download Charles Proxy http://www.charlesproxy.com/ on your laptop (PC or Mac version)
+    * Registered Name: *******************************
+    * License Key: ********************************
+    
+4. Get your wireless IP
+    * Open your CMD prompt (Terminal) For PC, type "ipconfig" to get your wireless IP (wireless IPv4).
+    * For Mac, Go to System Preference =>Wi-Fi=>IP address(Beneath Status = Connected) 
+    
+5. Configure wireless device (eg. will use iPad/iOS as example)
+    * Open Settings > Wi-Fi > click on ( i ) info icon beside selected network
+    * Under HTTP PROXY, select "Manual" tab
+        * Server: (enter your wireless IP here)
+        * Port: 8888 (this should match the port in Charles Proxy)
+        
+6. Confirm port in Charles Proxy
+    * Under Proxy > Proxy Settings. HTTP PROXY port should also be 8888
+    
+7. View local webpage in wireless device
+    * load webpage on device
+    * Charles Proxy will prompt "A connection attempt to Charles Proxy has been made..." Click APPLY
+    * reload webpage and test
+    
+8. In Safari navigate It is a self signed certificate
+      http://www.charlesproxy.com/getssl
+      Click install in popup to install Profile/Certificate => Install => Install => Done.
+
+9. Validate if certificate is verified 
+      Settings > General > profile > Configuration Profile > Validate Green marked Verified.
+
+10. Validate once if here if certificate is trusted, if not then trust it.
+       Settings > General > About > Certificate Trust Testings
