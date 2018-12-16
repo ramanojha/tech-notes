@@ -8,17 +8,26 @@ Solution
 So to change Java Version for your project do the following.
 Here are update JDK 1.5 latest JDK 1.8
 
+1.
 Right click on project => Build Path => Configure Build Path => Libraries =>
 Double Click on JRE System Library => Execution environment => select latest => JavaSE-1.8(Java SE 8[Java 1.8.0_171]) =>
 Click on WorkSpace Default JRE Java SE 8[Java 1.8.0_171] => Finish
 
+2.
 Java compiler => select Enable Project Specific Settings =>
 Compiles compliance level => 1.8[update to latest or any which you desire] => Apply =>
 Unselect select Enable Project Specific Settings => Apply and close.
 
+3.
+Refresh and run maven clean test.
+
+4.
 If finally it doesn’t resolve than do following 
 Add/update following in pom.xml
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
+	
+5.
+Refresh and run maven clean test.
