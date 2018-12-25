@@ -20,3 +20,8 @@
 7. cat -n <filename> | less  // return output of a file which fits in terminal, to see more lines 'enter', to quit 'q'
 8. cat -n <filename> | more  // return output of a file which fits in terminal
 
+
+## download file
+
+1. Mac()  wget -P <downLoadDestination> --no-check-certificate <sourceLocation>
+2. Windows() wgetEXEPath -P <downLoadDestination> --no-check-certificate <sourceLocation>
