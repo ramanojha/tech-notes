@@ -1,0 +1,22 @@
+## grep [returns matched output line]
+
+1. [command] |grep -i <keyword>    // -i ignore; 
+2. [command] |grep -i '<keyword>' <filename> 
+3. grep -vi '<keyword>' <filename>   // return opp. of 2.
+4. grep -w '<Exact word>' <filename> 
+5. grep -wi '<Exact word with IgnoredCase>' <filename> 
+6. grep '<keyword with matched case>'  <filename> 
+7. [command] |grep -n -i <keyword> // -n adds number line
+
+
+## cat [to view, create, append]
+
+1. cat <filename> //output file content
+2. cat -n <filename> //output file content with line number
+3. cat > <filename> //create empty file
+4. [command] | cat > <filename>   //create file and redirect/overwrite output of command
+5. [command] | cat >> <filename>   //create file and redirect/append output of command
+6. cat <file01>, <file02>, <file03> // opens all file
+7. cat -n <filename> | less  // return output of a file which fits in terminal, to see more lines 'enter', to quit 'q'
+8. cat -n <filename> | more  // return output of a file which fits in terminal
+
