@@ -1,0 +1,16 @@
+1. When file is untracked, it means it is not in staging. To bring to staging user git add
+
+2. Working tree clean, means everything is already commited and has been put from staging to History area.
+
+3. Each commit makes SHA hash.
+
+4. Removing a file from working tree performs two action. 1. It deletes the file from working tree. 2. It tracks the file deleted in Staging area.
+
+5. git add S1 #Now File is in staging
+	git diff #To track difference between working tree and staging area. Hence no output.
+	git diff --staged #To track difference between staging area to recent commit (History area). Hence the result
+
+6. HEAD - Pointer - Head is the pointer which point to latest branch, HEAD Pointer tells what we have checked out.
+
+7. To move HEAD pointer, we have git checkout branch, or at a commit git checkout <hash>
+
