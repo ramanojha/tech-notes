@@ -3,57 +3,63 @@ https://www.youtube.com/watch?v=uR6G2v_WsRA&list=PUEoaojfEY_6L5TWWjIn9t9Q&index=
 https://www.youtube.com/watch?v=FyAAIHHClqI&list=PUEoaojfEY_6L5TWWjIn9t9Q&index=4
 https://www.youtube.com/watch?v=Gg4bLk8cGNo&list=PUEoaojfEY_6L5TWWjIn9t9Q&index=15
 
+KeysGens
+https://git-scm.com/book/en/v2/Git-on-the-Server-Generating-Your-SSH-Public-Key
+https://www.youtube.com/watch?v=WgZIv5HI44o
+
 // Adding removing and commiting
 [Working Tree  	------------------>  Staging Area  	------------------->  	History]
 				git init
-				git add .							                      git commit -m
-				git add f1							                    git commit 
+				git add .							git commit -m
+				git add f1							git commit 
 				git rm f1
 [Working Tree  	------------> git commit -a -m "Commit Message" ------->  	History]   ===> TO BYPASS Staging or To stage and commit 
 
 // for staus, and commit history
 [Working Tree  	------------------>  Staging Area  	------------------->  	History]
-                git status													git log
-                                                    git log -p  - what was changed
-                                                    git log f1
-                                                    git log --oneline
-                                                    git log --all --decorate --oneline --graph
+				git status													git log
+																			git log -p  - what was changed
+																			git log f1
+																			git log --oneline
+																			git log --all --decorate --oneline --graph
 // for difference																			
 [Working Tree  	------------------>  Staging Area  	------------------->  	History]
-                git diff							git diff -- staged	
+				git diff							git diff -- staged	
 							
 
 // for Undoing			
 [Working Tree  	<------------------  Staging Area  	<-------------------  	History] <----------------------------------repository]
-                git checkout --S1 					         git reset HEAD S1 													1. git revert HEAD ~2 
-                                                     git checkout <commitHash> --S2  						2. git push
-                                                                                                1. git reset --hard 71c27777543ccfcb0376dcdd8f6777df055ef479
-                                                                                                2. git push --force
+				git checkout --S1 					git reset HEAD S1 													1. git revert HEAD ~2
+													git checkout <commitHash> --S2  									2. git push
+																														1. git reset --hard 71c27777543ccfcb0376dcdd8f6777df055ef479
+																														2. git push --force
 																														
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 If EXISTING WORKSPACE IS MODIFIED then SWITCH OVER TO NEW BRANCH IS NOT ALLOWED
 
 // for stashing																			
-[Working Tree  	---------------------------------------->  Stash Area.]
-                git stash save "commit message"
-                git stash list
-                git stash save "Worked on Function."
-                git stash list
-                git stash list -p  ==> to check what are the changes done.
-                git stash apply stash@{0} --- stash{0} is not deleted from stash list.
-                git stash pop - for latest --- stash{0} is deleted from from list
-                git stash drop stash@{0} -- it will drop the stash
-                git stash clear
+[Working Tree  	---------------------------------------->  Stash Area.
+				git stash save "commit message"
+				git stash list
+				git stash save "Worked on Function."
+				git stash list
+				git stash list -p  ==> to check what are the changes done.
+				git stash apply stash@{0} --- stash{0} is not deleted from stash list.
+				git stash pop - for latest --- stash{0} is deleted from from list
+				git stash drop stash@{0} -- it will drop the stash
+				git stash clear
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Vim commmand 
 vi file1  - Opens up then :	wq! :q!
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 https://www.youtube.com/watch?v=FyAAIHHClqI&list=PUEoaojfEY_6L5TWWjIn9t9Q&index=4
 
-git branch branchName       -- create branch
-git branch -b branchName    -- create and checkout(switch) branch.
-git branch                  -- shows all branch
-git checkout branch         -- To swtich new branch
+git branch branchName  -- create branch
+git branch -b branchName -- create and checkout(switch) branch.
+git branch   -- it just display all branch of forked repository, but to see all branches of remote repository.
+Use git branch -a  // To watch all branch of remote repo as well.
+Use git branch -r  // To watch to tracked only branch.
+git checkout branch ---- To swtich new branch
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -83,26 +89,27 @@ git merge branchname
 		|\ 
 		| \
 		|  \ 	2. Now master to branch1 Not straight forward as there was megre with master
-		| 	\	so. it will be a 3 way merge called recursive merge. it will check commit 3,1,2  sequentially.
-		|	   \	   git merege branch1.  Hence it will be recursive megre.
-		|	    \
-		|	     \
-		|		    \
-		|		     \
-		|		      \
+		|	\	so. it will be a 3 way merge called recursive merge. it will check commit 3,1,2  sequentially.
+		|	 \	   git merege branch1.  Hence it will be recursive megre.
+		|	  \
+		|	   \
+		|		\
+		|		 \
+		|		  \
 		|Not Direct\
 (2)branch1<---------(3)branch2/master
-		|		      /
-		|		     /
-	up|    up /
-		|	     / 1. master to branch2 (Fast forward merge)
-		|	    /	 	git checkout master
-		|	   /      git merge branch2
-		|	  /	 
+		|		  /
+		|		 /
+	up	|    up /
+		|	   / 1. master to branch2 (Fast forward merge)
+		|	  /	 	git checkout master
+		|	 /      git merge branch2
+		|	/	 
 		|  / 
 		| /
 		|/
-		
+		|
+		|
 	master (1)
 
 2.2 
@@ -123,8 +130,67 @@ git checkout master   ===> HEAD POINTER and Master are sync.
 git checkout <commitedHash> --- HEAD POINTER is at commitedHash. === Hence this position is called DETACHED HEAD.
 git branch stage  ====> creating new branch 'stage' will be created start from commited hash.
 git checkout stage ====> Now Head pointer will be attached with the branch. This can be seen in commit logs (HEAD -> stage)
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Git setup
+git clone
+cd projectname
+git config --local user.name "rojha"
+git config --local user.email "rojha@gmail.com"
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+git remote 
+git remote -v ==> Full locations Fetch/push
+
+git fetch origin  ==> To fetch new file.
 
 
+[Working Tree  	<--------------------------------------  	History <----------------------------------> Repository] 
+																										1. git fetch origin [Your branch is behind one commit] Because changes are in commit history.
+Changes downloaded <----------Fast forward merge---         2. git megre origin/master  [merging origin with local's master]
+																										
+Changes downloaded <------------------------------------------------------------------------------------ git pull 
+																										[combination of 1. git fetch origin]
+																														2. git megre origin/master.
+So basically to download
+1. git fetch origin
+2. git merge origin master
+or 
+1.git pull
+
+Upload changes    --------------------------------------------------------------------------------------> Changes uploaded
+1. git commit -a -m 'Message' ===> states your local branch is one step ahead of commit history.
+2. git push origin master [It means changes are being pushed to origin(remote) at master from history area]
+So basically to uploaad
+1. git commit -a -m 'Message'
+2. git push origin master
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+TO add a remote 
+git remote add upstream  <repository path from which repository is forked>  ==> when upstream is main repo, and origin will be the forked repository
+
+To remove remove
+git remote remove <remote name>
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+Sync with upstream
+// Downloading the changes from upstream.
+Prerequisite -changes in upstream
+Upstreem/master -------------------------------------> local's master------------> origin/master 
+
+
+1. git fetch upstream  - origin will be one commit behind, hence HEAD of local's origin will be out of sync to upstreem commit.
+2. git merge upstream/master  -- Now megring commit of upstream with the master, Now the upstreem will be sync with local's origin master. but origin's master has to in sync with local's master
+3. git push origin master
+
+
+// When doing git branch, it just display all branch of forked repository, but to see all branches of remote repository.
+Use git branch -a
+Use git branch -r  // SO to track only track branch.
+
+git checkout -b branch1
+git commit -a "branch1 is edited"
+git push origin branch1
 
 
 
