@@ -192,8 +192,27 @@ Use git branch -r  // SO to track only track branch.
 git checkout -b branch1
 git commit -a "branch1 is edited"
 git push origin branch1
+----------------------------------------------------------------------------------------------------------------------
+
+Merging
+git checkout branch1 -- Check if head is pointing to this branch
+git merge master  --- It will merge master commits to branch1.
+
+or
+git merge master feature -- so here master is being merged to feature.
 
 
+Rebasing
+git checkout branch1 -- Check if head is pointing to this branch
+git rebase master  --- It will merge master to feature.
 
+Local clean up
+git rebase  -i HEAD ~3
+Major advantage is it makes clean git log history.. with git rebase git log history looks lenier,
+Major disadvantage - It over-writes the changes which are done on master, so anysort of conflicts cannot be seen. which can be difficult to identify
+When to use - Rebasing shouldn't be used with public branch ex. master also when PR is raised, as you will have latest copy of public branch but rest all will have older copy.
+You can use this with your own branch.
+
+https://www.youtube.com/watch?v=f1wnYdLEpgI
 								
 																														
