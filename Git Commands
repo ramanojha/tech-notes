@@ -31,7 +31,7 @@ https://www.youtube.com/watch?v=WgZIv5HI44o
 // for Undoing			
 [Working Tree  	<------------------  Staging Area  	<-------------------  	History] <----------------------------------repository]
 		git checkout --S1 					git reset HEAD S1 				1. git revert HEAD ~2
-									git checkout <commitHash> --S2 			2. git push
+		git restore --staged .					git checkout <commitHash> --S2 			2. git push
 															1. git reset --hard 71c7777543ccfcb0376dcdd8f6777df055ef47
 															2. git push --force
 																														
